@@ -22,7 +22,7 @@ jobs:
           java-version: '11'
 
       - name: Compile
-        run: javac HelloWorld.java
+        run: javac app.java
 
   test:
     needs: build
@@ -37,7 +37,7 @@ jobs:
           java-version: '11'
 
       - name: Test
-        run: echo "Running tests... (no tests to run)"
+        run: echo "Running tests..."
 
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
