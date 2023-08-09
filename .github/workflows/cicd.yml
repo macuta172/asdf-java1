@@ -16,9 +16,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Set up Java 11
-        uses: actions/setup-java@v2.1.0
+        uses: actions/setup-java@v1
         with:
-          distribution: 'adopt'
           java-version: '11'
 
       - name: Build
@@ -31,9 +30,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Set up Java 11
-        uses: actions/setup-java@v2.1.0
+        uses: actions/setup-java@v1
         with:
-          distribution: 'adopt'
           java-version: '11'
 
       - name: Test
@@ -47,11 +45,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Set up Java 11
-        uses: actions/setup-java@v2.1.0
+        uses: actions/setup-java@v1
         with:
-          distribution: 'adopt'
           java-version: '11'
 
       - name: Deploy
         run: bash deploy.sh
-
