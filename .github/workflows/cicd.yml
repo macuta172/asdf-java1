@@ -14,13 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3 # Actualizado a v3
+        uses: actions/checkout@v2.4.0
       - name: Set up Java 11
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v2.3.1
         with:
-          distribution: 'adopt'
+          distribution: 'zulu'
           java-version: '11'
-
       - name: Compile
         run: javac app.java
 
@@ -29,15 +28,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3 # Actualizado a v3
+        uses: actions/checkout@v2.4.0
       - name: Set up Java 11
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v2.3.1
         with:
-          distribution: 'adopt'
+          distribution: 'zulu'
           java-version: '11'
-
       - name: Test
-        run: echo "Running tests..."
+        run: echo "Running tests... (no tests to run)"
 
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -45,13 +43,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3 # Actualizado a v3
+        uses: actions/checkout@v2.4.0
       - name: Set up Java 11
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v2.3.1
         with:
-          distribution: 'adopt'
+          distribution: 'zulu'
           java-version: '11'
-
       - name: Deploy
         run: echo "Deploying application..."
-
