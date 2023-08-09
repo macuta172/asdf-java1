@@ -19,6 +19,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '11'
+        distribution: 'adopt'
     - name: Build
       run: bash build.sh
 
@@ -32,6 +33,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '11'
+        distribution: 'adopt'
     - name: Test
       run: bash test.sh
 
@@ -46,5 +48,6 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '11'
+        distribution: 'adopt'
     - name: Deploy
       run: bash deploy.sh
