@@ -16,9 +16,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Set up Java 11
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y openjdk-11-jdk
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt' # o 'temurin' para la versión de la comunidad
+          java-version: '11'
 
       - name: Build
         run: bash build.sh
@@ -30,9 +31,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Set up Java 11
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y openjdk-11-jdk
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
 
       - name: Test
         run: bash test.sh
@@ -45,10 +47,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Set up Java 11
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y openjdk-11-jdk
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
 
       - name: Deploy
         run: bash deploy.sh
-
