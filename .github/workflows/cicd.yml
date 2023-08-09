@@ -15,10 +15,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Set up JDK 11
-        uses: actions/setup-java@latest
-        with:
-          java-version: '11'
+      - name: Set up Java 11
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openjdk-11-jdk
 
       - name: Build
         run: bash build.sh
@@ -29,10 +29,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Set up JDK 11
-        uses: actions/setup-java@latest
-        with:
-          java-version: '11'
+      - name: Set up Java 11
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openjdk-11-jdk
 
       - name: Test
         run: bash test.sh
@@ -44,10 +44,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Set up JDK 11
-        uses: actions/setup-java@latest
-        with:
-          java-version: '11'
+      - name: Set up Java 11
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openjdk-11-jdk
 
       - name: Deploy
         run: bash deploy.sh
+
