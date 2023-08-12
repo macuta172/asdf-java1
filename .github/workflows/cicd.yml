@@ -20,8 +20,10 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
-      - name: Compile
-        run: javac app.java
+      - name: Make build.sh executable
+        run: chmod +x ./build.sh
+      - name: Make build.sh executable
+        run: ./build.sh
 
   test:
     needs: build
@@ -34,8 +36,10 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
-      - name: Test
-        run: echo "Running tests... (no tests to run)"
+      - name: Make test.sh executable
+        run: chmod +x ./test.sh
+      - name: Make test.sh executable
+        run: ./test.sh
 
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -49,5 +53,7 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
-      - name: Deploy
-        run: echo "Deploying application..."
+      - name: Make deploy.sh executable
+        run: chmod +x ./deploy.sh
+      - name: Make deploy.sh executable
+        run: ./deploy.sh
