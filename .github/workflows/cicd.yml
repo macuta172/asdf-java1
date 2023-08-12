@@ -1,4 +1,4 @@
-name: Build, Test and Deploy
+name: cicd
 
 on:
   push:
@@ -20,10 +20,10 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
-      - name: Make test.sh executable
-        run: chmod +x ./test.sh
-      - name: Make test.sh executable
-        run: ./test.sh
+      - name: Make build.sh executable
+        run: chmod +x ./build.sh
+      - name: Run build.sh
+        run: ./build.sh
         
   test:
     needs: build
@@ -38,7 +38,7 @@ jobs:
           java-version: '17'
       - name: Make test.sh executable
         run: chmod +x ./test.sh
-      - name: Make test.sh executable
+      - name: Run test.sh
         run: ./test.sh
 
   deploy:
@@ -55,7 +55,7 @@ jobs:
           java-version: '17'
       - name: Make deploy.sh executable
         run: chmod +x ./deploy.sh
-      - name: Make deploy.sh executable
+      - name: Run deploy.sh
         run: ./deploy.sh
       - name: Compile app 
         run: javac app.java
