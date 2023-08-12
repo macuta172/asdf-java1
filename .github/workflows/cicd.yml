@@ -20,10 +20,11 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-          cache: 'maven'
-      - name: Build with Maven
-        run: ./test.sh  
-
+      - name: Make test.sh executable
+        run: chmod +x ./test.sh
+      - name: Make test.sh executable
+        run: ./test.sh
+        
   test:
     needs: build
     runs-on: ubuntu-latest
